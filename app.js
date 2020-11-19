@@ -24,6 +24,6 @@ bsApp.use('/growthlog', bsControllers.GrowthLog);
 db.sync();                                                            // then -> synchronize the database with the models
 // db.sync({force: true});
 
-bsApp.listen(3030, function(){
+bsApp.listen(process.env.PORT, function(){
      console.log('Baby Stats App is listening on port 3030...');
 });
