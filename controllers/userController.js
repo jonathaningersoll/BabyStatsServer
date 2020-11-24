@@ -4,8 +4,8 @@ const express = require('express');					// then -> get express functionality as 
 const userController = express.Router();				// then -> get the express.Router() functionality as "userController"
 const { User } = require('../models/index');				// then -> go to the models index to get the user model as "User"
 
-/***************************************************
-*	Register a user 								- POST	*
+/**************************************************
+*	Register a user				- POST	*
 ***************************************************/
 userController.post('/register', function(req, res){
 	User.create(
@@ -29,8 +29,8 @@ userController.post('/register', function(req, res){
 	);
 });
 
-/***************************************************
-*	Log in a user 									- POST	*
+/**************************************************
+*	Log in a user					- POST	*
 ***************************************************/
 userController.post('/login', function(req, res){
 	User.findOne(
