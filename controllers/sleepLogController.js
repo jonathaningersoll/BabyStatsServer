@@ -50,8 +50,8 @@ sleepLogController.put('/:id', (req, res) => {
 	var newLog = req.body.sleeplog;
 	SleepLog.update(
 		{
-				start:	newLog.start,
-				stop:	newLog.stop
+			sleep_start:	newLog.start,
+			sleep_stop:	newLog.stop
 		},
 		{
 			where: {
@@ -62,8 +62,8 @@ sleepLogController.put('/:id', (req, res) => {
 	).then(
 		function updateSuccess(logData){
 			res.json({
-				start:	newLog.start,
-				stop:	newLog.stop
+				sleep_start:	newLog.start,
+				sleep_stop:	newLog.stop
 			})
 		},
 		function updateError(err){
