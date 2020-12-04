@@ -56,7 +56,7 @@ sleepLogController.put('/:id', (req, res) => {
 		{
 			where: {
 				id:		req.params.id,
-				childId:	newLog.childid,
+				childId:	newLog.childId,
 			}
 		}
 	).then(
