@@ -24,3 +24,5 @@ const FoodLog = db.define('foodlog', {
 });
 
 module.exports = FoodLog;
+
+// TODO: Bottle must be {allownull: true}

@@ -36,12 +36,14 @@ userController.post('/login', function(req, res){
 	User.findOne(
 		{where: {username: req.body.user.username}}
 	).then(function(user){
+		var role = user.role;
 		bcrypt.compare(req.body.user.password, user.passwordhash, function(err, matches){
 			if (matches) {
 				var token = jwt.sign({id: user.id}, process.env.JWT_SECRET, {expiresIn: 60*60*24});
 				res.json({
 					message: `Welcome, ${user.username}!`,
-					sessionToken: token
+					sessionToken: token,
+					role: role
 				});
 			} else {
 				res.status(502).send({error: "Failure to authenticate."});
