@@ -69,11 +69,11 @@ userController.get('/', (req, res) => {
 /***************************************************
 *	Update user information by ID			 	- PUT		*
 ***************************************************/
-userController.put('/:id', (req, res) => {
+userController.put('/update/:id', (req, res) => {
 	User.update(
 		{
 			username: req.body.user.username,
-			passwordhash: bcrypt.hashSync(req.body.user.password, 10),
+			// passwordhash: bcrypt.hashSync(req.body.user.password, 10),
 			email: req.body.user.email,
 			role: req.body.user.role
 		},
@@ -86,7 +86,7 @@ userController.put('/:id', (req, res) => {
 		function updateSuccess(updatedUser){
 			res.json({
 				username: req.body.user.username,
-				passwordhash: req.body.user.username,
+				// passwordhash: req.body.user.username,
 				email: req.body.user.email,
 				role: req.body.user.role
 			})
