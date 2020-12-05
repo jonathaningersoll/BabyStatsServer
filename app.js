@@ -5,11 +5,11 @@ const bsApp = express();                                       // then -> save t
 
 // Controllers:
 bsControllers = require('./controllers');
-// const cors = require("cors");
+const cors = require("cors");
 
 // Express-JSON converter
 bsApp.use(express.json());
-// bsApp.use(cors());
+bsApp.use(cors());
 bsApp.use(require('./middleware/headers'));
 // Open routes //
 bsApp.use('/user', bsControllers.User);
