@@ -18,11 +18,11 @@ module.exports = function(req, res, next){
                               }
                          )
                          .then(user => {
-                              console.log(user);
+                              console.log("empty user|||||||||||||||||||||||||||||||:", user);
                          })                         
                          .then(user => {
                               req.user = user;
-                              console.log(user);
+                              console.log("Filled user))))))))))))))))))))))))))))))))))", user);
                               next();
                          },
                          function(){
