@@ -10,7 +10,6 @@ childController.get('/test', (req, res) => {
 /	Create a child					- POST	*/
 childController.post('/', (req, res) => {
 	var newChild = req.body.child;
-	console.log(req);
 	Child.create(
 		{
 			// Get user.id from decrypted token and add it to the 
