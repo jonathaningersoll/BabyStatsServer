@@ -16,7 +16,11 @@ module.exports = function(req, res, next){
                                         id: decoded.id
                                    }
                               }
-                         ).then(user => {
+                         )
+                         .then(user => {
+                              console.log(user);
+                         })                         
+                         .then(user => {
                               req.user = user;
                               console.log(user);
                               next();
