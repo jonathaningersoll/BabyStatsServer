@@ -16,13 +16,9 @@ module.exports = function(req, res, next){
                                         id: decoded.id
                                    }
                               }
-                         )
-                         .then(user => {
-                              console.log("empty user|||||||||||||||||||||||||||||||:", user);
-                         })                         
-                         .then(user => {
+                         ).then(user => {
                               req.user = user;
-                              console.log("Filled user))))))))))))))))))))))))))))))))))", user);
+                              console.log("Filled User: |||||||||||||||||||||||||||||| ",user);
                               next();
                          },
                          function(){
