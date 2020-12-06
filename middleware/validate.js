@@ -17,6 +17,7 @@ module.exports = function(req, res, next){
                               }
                          ).then(user => {
                               req.user = user;
+                              console.log(user);
                               next();
                          },
                          function(){
