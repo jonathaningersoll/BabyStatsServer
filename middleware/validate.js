@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const { User } = require('../models/index');
 module.exports = function(req, res, next){
 	if(req.method == 'OPTIONS'){
-	     next()
+	     return next()
 	}else{
           let token = req.headers.authorization;
           if(!token) return res.status(403).send({ auth: false, message: 'No token provided.' });
@@ -21,7 +21,7 @@ module.exports = function(req, res, next){
                          ).then(user => {
                               req.user = user;
                               console.log("Filled User: |||||||||||||||||||||||||||||| ",user);
-                              next();
+                              return next();
                          },
                          function(){
                               res.status(401).send({error: 'Not authorized'});
