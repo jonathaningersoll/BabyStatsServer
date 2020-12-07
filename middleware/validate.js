@@ -9,9 +9,7 @@ module.exports = function(req, res, next){
           else{
                jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
                     var userId = decoded.id;
-                    console.log(userId);
                     if(decoded){
-                         console.log("Decoded token***********************************************************************",decoded);                                                      // print "decoded"
                          User.findOne(
                               {
                                    where: {
@@ -20,7 +18,6 @@ module.exports = function(req, res, next){
                               }
                          ).then(user => {
                               req.user = user;
-                              console.log("Filled User: |||||||||||||||||||||||||||||| ",user);
                               return next();
                          },
                          function(){

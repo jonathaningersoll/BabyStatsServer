@@ -37,7 +37,6 @@ userController.post('/login', function(req, res){
 		{where: {username: req.body.user.username}}
 	).then(function(user){
 		var role = user.role;
-		console.log("user controller user: ",user);
 		bcrypt.compare(req.body.user.password, user.passwordhash, function(err, matches){
 			if (matches) {
 				var token = jwt.sign({id: user.id}, process.env.JWT_SECRET, {expiresIn: 60*60*24});
