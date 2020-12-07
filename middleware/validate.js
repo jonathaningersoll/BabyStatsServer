@@ -14,7 +14,7 @@ module.exports = function(req, res, next){
                          console.log("Decoded token***********************************************************************",decoded);                                                      // print "decoded"
                          User.findOne(
                               {
-                                   Where: {
+                                   where: {
                                         id: userId
                                    }
                               }
