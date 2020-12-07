@@ -2,22 +2,23 @@ const jwt = require('jsonwebtoken');
 const { User } = require('../models/index');
 module.exports = function(req, res, next){
 	if(req.method == 'OPTIONS'){
-	     next()
+	     return next()
 	}else{
           let token = req.headers.authorization;
           if(!token) return res.status(403).send({ auth: false, message: 'No token provided.' });
           else{
                jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+                    var userId = decoded.id;
                     if(decoded){
                          User.findOne(
                               {
-                                   Where: {
-                                        id: decoded.id
+                                   where: {
+                                        id: userId
                                    }
                               }
                          ).then(user => {
                               req.user = user;
-                              next();
+                              return next();
                          },
                          function(){
                               res.status(401).send({error: 'Not authorized'});
